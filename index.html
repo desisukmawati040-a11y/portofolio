@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gunung Tangkuban Parahu - Destinasi Wisata Alam Bandung</title>
+    <meta name="description" content="Jelajahi keindahan Gunung Tangkuban Parahu, destinasi wisata alam terpopuler di Bandung dengan kawah aktif dan pemandangan menakjubkan.">
+    <meta name="keywords" content="tangkuban parahu, bandung, wisata gunung, kawah, destinasi wisata">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .dark .bg-white { background-color: #1f2937; }
+        .dark .text-gray-900 { color: #f9fafb; }
+        .dark .text-gray-600 { color: #d1d5db; }
+        .dark .text-gray-700 { color: #e5e7eb; }
+        .dark .bg-gray-50 { background-color: #374151; }
+        .dark .bg-gray-100 { background-color: #4b5563; }
+        .dark .border-gray-200 { border-color: #4b5563; }
+        .dark .border-gray-300 { border-color: #6b7280; }
+        
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .weather-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+        
+        .testimonial-card {
+            min-height: 200px;
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .video-overlay {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .booking-form {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar.open {
+            right: 0;
+        }
+        
+        .dark .sidebar {
+            background: #1f2937;
+        }
+        
+        .mountain-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 25%, #991b1b 50%, #7f1d1d 75%, #450a0a 100%);
+        }
+        
+        .crater-effect {
+            background: radial-gradient(circle at center, #fbbf24 0%, #f59e0b 30%, #d97706 60%, #92400e 100%);
+        }
+        
+        .volcanic-smoke {
+            animation: smoke 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes smoke {
+            0% { transform: translateY(0) scale(1); opacity: 0.7; }
+            100% { transform: translateY(-10px) scale(1.1); opacity: 0.3; }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.8); }
+        }
+    </style>
+</head>
+<body class="font-sans transition-colors duration-300">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-colors duration-300">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-mountain text-2xl text-red-600 volcanic-smoke"></i>
+                    <span class="text-xl font-bold text-gray-900">Tangkuban Parahu</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-gray-700 hover:text-red-600 transition-colors">Beranda</a>
+                    <a href="#about" class="text-gray-700 hover:text-red-600 transition-colors">Tentang</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-red-600 transition-colors">Galeri</a>
+                    <a href="#facilities" class="text-gray-700 hover:text-red-600 transition-colors">Fasilitas</a>
+                    <a href="#events" class="text-gray-700 hover:text-red-600 transition-colors">Event</a>
+                    <a href="#blog" class="text-gray-700 hover:text-red-600 transition-colors">Blog</a>
+                    <a href="#booking" class="text-gray-700 hover:text-red-600 transition-colors">Reservasi</a>
+                    <a href="#contact" class="text-gray-700 hover:text-red-600 transition-colors">Kontak</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Language Switcher -->
+                    <select id="languageSwitch" class="bg-transparent border border-gray-300 rounded px-2 py-1 text-sm">
+                        <option value="id">🇮🇩 ID</option>
+                        <option value="en">🇺🇸 EN</option>
+                    </select>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-moon text-gray-600"></i>
+                    </button>
+                    
+                    <!-- Sidebar Toggle -->
+                    <button id="sidebarToggle" class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-bars text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-900">Menu Navigasi</h3>
+                <button id="closeSidebar" class="text-gray-600 hover:text-red-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <nav class="space-y-4">
+                <a href="#home" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-home mr-3"></i>Beranda
+                </a>
+                <a href="#about" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-info-circle mr-3"></i>Tentang
+                </a>
+                <a href="#gallery" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-images mr-3"></i>Galeri
+                </a>
+                <a href="#facilities" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-concierge-bell mr-3"></i>Fasilitas
+                </a>
+                <a href="#events" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-calendar-alt mr-3"></i>Event
+                </a>
+                <a href="#blog" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-blog mr-3"></i>Blog
+                </a>
+                <a href="#booking" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-ticket-alt mr-3"></i>Reservasi
+                </a>
+                <a href="#contact" class="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded transition-colors">
+                    <i class="fas fa-envelope mr-3"></i>Kontak
+                </a>
+            </nav>
+            
+            <div class="mt-8 p-4 bg-red-50 rounded-lg">
+                <h4 class="font-semibold text-red-800 mb-2">Info Terkini</h4>
+                <p class="text-sm text-red-600">Kawah Ratu sedang aktif. Pastikan mengikuti protokol keselamatan.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen parallax mountain-gradient">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative z-10 flex items-center justify-center h-full text-center text-white">
+            <div class="max-w-5xl px-4">
+                <div class="floating">
+                    <h1 class="text-6xl md:text-8xl font-bold mb-6 fade-in">
+                        <span data-id="hero-title">Gunung Tangkuban Parahu</span>
+                    </h1>
+                    <p class="text-xl md:text-3xl mb-8 fade-in" data-id="hero-subtitle">
+                        Legenda Sangkuriang & Keajaiban Kawah Aktif
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                    <button onclick="scrollToSection('booking')" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-full text-lg font-semibold transition-colors pulse-glow">
+                        <i class="fas fa-ticket-alt mr-2"></i>
+                        <span data-id="book-now">Pesan Tiket</span>
+                    </button>
+                    <button onclick="openVirtualTour()" class="border-2 border-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                        <i class="fas fa-vr-cardboard mr-2"></i>
+                        <span data-id="virtual-tour">Virtual Tour 360°</span>
+                    </button>
+                    <button onclick="openVideoPopup()" class="border-2 border-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                        <i class="fas fa-play mr-2"></i>
+                        <span data-id="watch-video">Tonton Video</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4">
+            <div class="bg-white/90 backdrop-blur-md rounded-full p-2 shadow-2xl">
+                <div class="flex items-center">
+                    <input type="text" id="searchInput" placeholder="Cari kawah, fasilitas, atau informasi..." class="flex-1 px-6 py-3 bg-transparent outline-none text-gray-700">
+                    <button onclick="performSearch()" class="bg-red-600 hover:bg-red-700 p-3 rounded-full text-white transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Widget -->
+    <div class="fixed top-20 right-4 z-40 weather-widget text-white p-4 rounded-lg shadow-lg">
+        <div class="text-center">
+            <i class="fas fa-cloud-sun text-2xl mb-2"></i>
+            <div class="text-sm">Lembang</div>
+            <div class="text-lg font-bold">22°C</div>
+            <div class="text-xs">Berawan</div>
+            <div class="text-xs mt-1">Angin: 15 km/h</div>
+        </div>
+    </div>
+
+    <!-- Statistics Counter -->
+    <section class="py-16 mountain-gradient text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="counter" data-target="500000">0</div>
+                    <div data-id="visitors">Pengunjung/Tahun</div>
+                </div>
+                <div class="fade-in">
+                    <div class="counter" data-target="2084">0</div>
+                    <div data-id="altitude">Meter dpl</div>
+                </div>
+                <div class="fade-in">
+                    <div class="counter" data-target="9">0</div>
+                    <div data-id="craters">Kawah Aktif</div>
+                </div>
+                <div class="fade-in">
+                    <div class="counter" data-target="4.7">0</div>
+                    <div data-id="rating">Rating Wisata</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="about-title">Tentang Tangkuban Parahu</h2>
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto" data-id="about-desc">
+                        Gunung Tangkuban Parahu adalah gunung berapi aktif yang terletak di Kabupaten Subang dan Kabupaten Bandung Barat, Jawa Barat. Dengan ketinggian 2.084 meter di atas permukaan laut, gunung ini menjadi salah satu destinasi wisata alam paling populer di Indonesia.
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="slide-in-left">
+                        <div class="crater-effect rounded-3xl p-12 text-white h-96 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-fire text-8xl mb-6 volcanic-smoke"></i>
+                                <h3 class="text-3xl font-bold">Kawah Ratu</h3>
+                                <p class="text-lg mt-2">Kawah Utama yang Menakjubkan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-in-right">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6" data-id="legend-title">Legenda Sangkuriang</h3>
+                        <div class="space-y-4 text-gray-600">
+                            <p data-id="legend-p1">
+                                Menurut legenda Sunda, Tangkuban Parahu terbentuk dari perahu yang ditendang oleh Sangkuriang dalam kemarahannya. Bentuk gunung yang menyerupai perahu terbalik menjadi bukti nyata dari cerita legendaris ini.
+                            </p>
+                            <p data-id="legend-p2">
+                                Kini, Tangkuban Parahu menjadi destinasi wisata yang memadukan keindahan alam, nilai sejarah, dan kearifan lokal dalam satu pengalaman yang tak terlupakan.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <div class="text-red-600 text-2xl mb-2">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900" data-id="volcanic">Gunung Berapi Aktif</h4>
+                                <p class="text-sm text-gray-600" data-id="volcanic-desc">Status aktif dengan monitoring 24/7</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-lg">
+                                <div class="text-red-600 text-2xl mb-2">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900" data-id="viewpoint">Pemandangan Spektakuler</h4>
+                                <p class="text-sm text-gray-600" data-id="viewpoint-desc">View 360° kota Bandung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="gallery-title">Galeri Foto & Video</h2>
+                <p class="text-xl text-gray-600" data-id="gallery-desc">Jelajahi keindahan Tangkuban Parahu melalui koleksi visual kami</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="flex justify-center mb-12 fade-in">
+                <div class="bg-gray-100 rounded-full p-1">
+                    <button onclick="filterGallery('all')" class="filter-btn active px-8 py-3 rounded-full transition-colors" data-id="all">Semua</button>
+                    <button onclick="filterGallery('craters')" class="filter-btn px-8 py-3 rounded-full transition-colors" data-id="craters">Kawah</button>
+                    <button onclick="filterGallery('landscape')" class="filter-btn px-8 py-3 rounded-full transition-colors" data-id="landscape">Pemandangan</button>
+                    <button onclick="filterGallery('videos')" class="filter-btn px-8 py-3 rounded-full transition-colors" data-id="videos">Video</button>
+                    <button onclick="filterGallery('360')" class="filter-btn px-8 py-3 rounded-full transition-colors" data-id="360">360°</button>
+                </div>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="gallery-item craters all fade-in" onclick="openLightbox('crater1')">
+                    <div class="crater-effect rounded-xl h-64 flex items-center justify-center cursor-pointer">
+                        <div class="text-white text-center">
+                            <i class="fas fa-fire text-5xl mb-3 volcanic-smoke"></i>
+                            <p class="font-semibold">Kawah Ratu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item landscape all fade-in" onclick="openLightbox('landscape1')">
+                    <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl h-64 flex items-center justify-center cursor-pointer">
+                        <div class="text-white text-center">
+                            <i class="fas fa-mountain text-5xl mb-3"></i>
+                            <p class="font-semibold">Pemandangan Bandung</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item videos all fade-in" onclick="openVideoPopup()">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl h-64 flex items-center justify-center cursor-pointer">
+                        <div class="text-white text-center">
+                            <i class="fas fa-play-circle text-5xl mb-3"></i>
+                            <p class="font-semibold">Video Drone</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item 360 all fade-in" onclick="openVirtualTour()">
+                    <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl h-64 flex items-center justify-center cursor-pointer">
+                        <div class="text-white text-center">
+                            <i class="fas fa-vr-cardboard text-5xl mb-3"></i>
+                            <p class="font-semibold">Virtual Tour 360°</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item craters all fade-in">
+                    <div class="bg-gradient-to-br from-red-500 to-orange-500 rounded-xl h-64 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-burn text-5xl mb-3"></i>
+                            <p class="font-semibold">Kawah Upas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item landscape all fade-in">
+                    <div class="bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl h-64 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-tree text-5xl mb-3"></i>
+                            <p class="font-semibold">Hutan Pinus</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item craters all fade-in">
+                    <div class="bg-gradient-to-br from-yellow-500 to-red-500 rounded-xl h-64 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-hot-tub text-5xl mb-3"></i>
+                            <p class="font-semibold">Kawah Domas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item videos all fade-in">
+                    <div class="bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl h-64 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-video text-5xl mb-3"></i>
+                            <p class="font-semibold">Sunrise Timelapse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="facilities-title">Fasilitas & Layanan</h2>
+                <p class="text-xl text-gray-600" data-id="facilities-desc">Nikmati berbagai fasilitas lengkap untuk pengalaman wisata yang nyaman</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="parking">Area Parkir</h3>
+                    <p class="text-gray-600" data-id="parking-desc">Area parkir luas dengan kapasitas 500 kendaraan</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="restaurant">Food Court</h3>
+                    <p class="text-gray-600" data-id="restaurant-desc">Berbagai pilihan kuliner khas Sunda dan internasional</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="souvenir">Toko Souvenir</h3>
+                    <p class="text-gray-600" data-id="souvenir-desc">Oleh-oleh khas Tangkuban Parahu dan produk lokal</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="medical">Pos Kesehatan</h3>
+                    <p class="text-gray-600" data-id="medical-desc">Fasilitas kesehatan dengan tenaga medis berpengalaman</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="viewpoint">Viewing Deck</h3>
+                    <p class="text-gray-600" data-id="viewpoint-desc">Platform observasi dengan pemandangan kawah terbaik</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="guide">Pemandu Wisata</h3>
+                    <p class="text-gray-600" data-id="guide-desc">Guide bersertifikat dengan pengetahuan geologi</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-restroom"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="toilet">Toilet & Mushola</h3>
+                    <p class="text-gray-600" data-id="toilet-desc">Fasilitas bersih dengan akses untuk disabilitas</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="wifi">WiFi Gratis</h3>
+                    <p class="text-gray-600" data-id="wifi-desc">Internet berkecepatan tinggi di seluruh area wisata</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="events-title">Event & Kegiatan</h2>
+                <p class="text-xl text-gray-600" data-id="events-desc">Ikuti berbagai event menarik sepanjang tahun</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="mountain-gradient h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-camera text-5xl mb-3"></i>
+                            <h4 class="text-xl font-bold">Festival Fotografi</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-id="photo-festival">Festival Fotografi Gunung</h3>
+                        <p class="text-gray-600 mb-4" data-id="photo-festival-desc">Kompetisi fotografi dengan tema keindahan alam vulkanik</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-semibold">15-17 Agustus</span>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                                <span data-id="join">Ikuti</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-500 h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-seedling text-5xl mb-3"></i>
+                            <h4 class="text-xl font-bold">Konservasi Alam</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-id="conservation">Program Konservasi</h3>
+                        <p class="text-gray-600 mb-4" data-id="conservation-desc">Kegiatan penanaman pohon dan edukasi lingkungan</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-semibold">Setiap Sabtu</span>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                                <span data-id="join">Ikuti</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="bg-gradient-to-br from-purple-500 to-pink-500 h-48 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <i class="fas fa-music text-5xl mb-3"></i>
+                            <h4 class="text-xl font-bold">Musik Tradisional</h4>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-id="music-festival">Festival Musik Sunda</h3>
+                        <p class="text-gray-600 mb-4" data-id="music-festival-desc">Pertunjukan musik tradisional dengan latar kawah</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-600 font-semibold">1-3 Oktober</span>
+                            <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                                <span data-id="join">Ikuti</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="blog-title">Artikel & Blog Wisata</h2>
+                <p class="text-xl text-gray-600" data-id="blog-desc">Baca tips, panduan, dan cerita menarik seputar Tangkuban Parahu</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="crater-effect h-48"></div>
+                    <div class="p-6">
+                        <div class="text-red-600 text-sm font-semibold mb-2">PANDUAN WISATA</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="article1-title">Tips Berkunjung ke Kawah Ratu</h3>
+                        <p class="text-gray-600 mb-4" data-id="article1-desc">Panduan lengkap untuk menikmati kawah utama dengan aman dan nyaman...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm">2 hari lalu</span>
+                            <a href="#" class="text-red-600 hover:text-red-700 font-semibold" data-id="read-more">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="bg-gradient-to-br from-green-500 to-blue-500 h-48"></div>
+                    <div class="p-6">
+                        <div class="text-red-600 text-sm font-semibold mb-2">SEJARAH</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="article2-title">Legenda Sangkuriang yang Menawan</h3>
+                        <p class="text-gray-600 mb-4" data-id="article2-desc">Menyelami cerita rakyat di balik terbentuknya Gunung Tangkuban Parahu...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm">5 hari lalu</span>
+                            <a href="#" class="text-red-600 hover:text-red-700 font-semibold" data-id="read-more">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow fade-in">
+                    <div class="bg-gradient-to-br from-yellow-500 to-orange-500 h-48"></div>
+                    <div class="p-6">
+                        <div class="text-red-600 text-sm font-semibold mb-2">GEOLOGI</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3" data-id="article3-title">Aktivitas Vulkanik Terkini</h3>
+                        <p class="text-gray-600 mb-4" data-id="article3-desc">Update terbaru mengenai kondisi dan aktivitas Gunung Tangkuban Parahu...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-500 text-sm">1 minggu lalu</span>
+                            <a href="#" class="text-red-600 hover:text-red-700 font-semibold" data-id="read-more">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="testimonials-title">Testimoni Pengunjung</h2>
+                <p class="text-xl text-gray-600" data-id="testimonials-desc">Apa kata mereka yang telah merasakan keajaiban Tangkuban Parahu</p>
+            </div>
+            
+            <div class="relative">
+                <div id="testimonialCarousel" class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="testimonialSlider">
+                        <div class="w-full flex-shrink-0">
+                            <div class="grid md:grid-cols-3 gap-8">
+                                <div class="bg-white rounded-xl p-8 shadow-lg testimonial-card">
+                                    <div class="flex items-center mb-6">
+                                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                            D
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="font-bold text-gray-900 text-lg">Dinda Sari</h4>
+                                            <div class="text-yellow-400 text-lg">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-lg">"Pengalaman yang luar biasa! Kawah Ratu benar-benar menakjubkan. Pemandangannya spektakuler dan fasilitasnya sangat lengkap."</p>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-8 shadow-lg testimonial-card">
+                                    <div class="flex items-center mb-6">
+                                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                            R
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="font-bold text-gray-900 text-lg">Rizky Pratama</h4>
+                                            <div class="text-yellow-400 text-lg">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-lg">"Destinasi wajib dikunjungi di Bandung! Suasana mistis dan keindahan alamnya benar-benar memukau. Guide-nya juga sangat informatif."</p>
+                                </div>
+                                
+                                <div class="bg-white rounded-xl p-8 shadow-lg testimonial-card">
+                                    <div class="flex items-center mb-6">
+                                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                                            A
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="font-bold text-gray-900 text-lg">Ayu Lestari</h4>
+                                            <div class="text-yellow-400 text-lg">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-lg">"Perfect untuk family trip! Anak-anak sangat excited melihat kawah aktif. Spot foto juga banyak dan Instagramable banget!"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="w-3 h-3 bg-red-600 rounded-full"></button>
+                    <button class="w-3 h-3 bg-gray-300 rounded-full"></button>
+                    <button class="w-3 h-3 bg-gray-300 rounded-full"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 booking-form">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-5xl font-bold text-white mb-6" data-id="booking-title">Reservasi Tiket</h2>
+                    <p class="text-xl text-white/90" data-id="booking-desc">Pesan tiket masuk dan paket wisata Anda sekarang juga</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8">
+                    <form id="bookingForm" class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <label for="fullName" class="block text-white font-semibold mb-3 text-lg" data-id="full-name">Nama Lengkap</label>
+                            <input type="text" id="fullName" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-white focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-white font-semibold mb-3 text-lg">Email</label>
+                            <input type="email" id="email" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-white focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-white font-semibold mb-3 text-lg" data-id="phone">No. Telepon</label>
+                            <input type="tel" id="phone" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-white focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="visitDate" class="block text-white font-semibold mb-3 text-lg" data-id="visit-date">Tanggal Kunjungan</label>
+                            <input type="date" id="visitDate" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white border border-white/30 focus:border-white focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="visitors" class="block text-white font-semibold mb-3 text-lg" data-id="visitors-count">Jumlah Pengunjung</label>
+                            <select id="visitors" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white border border-white/30 focus:border-white focus:outline-none text-lg">
+                                <option value="">Pilih jumlah</option>
+                                <option value="1">1 Orang</option>
+                                <option value="2-5">2-5 Orang</option>
+                                <option value="6-10">6-10 Orang</option>
+                                <option value="10+">Lebih dari 10 Orang</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="package" class="block text-white font-semibold mb-3 text-lg" data-id="package">Paket Wisata</label>
+                            <select id="package" required class="w-full px-6 py-4 rounded-xl bg-white/20 text-white border border-white/30 focus:border-white focus:outline-none text-lg">
+                                <option value="">Pilih paket</option>
+                                <option value="basic">Basic - Rp 30.000/orang</option>
+                                <option value="premium">Premium + Guide - Rp 75.000/orang</option>
+                                <option value="vip">VIP + Transport - Rp 150.000/orang</option>
+                                <option value="exclusive">Exclusive + Dokumentasi - Rp 250.000/orang</option>
+                            </select>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <label for="notes" class="block text-white font-semibold mb-3 text-lg" data-id="notes">Catatan Khusus</label>
+                            <textarea id="notes" rows="4" class="w-full px-6 py-4 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:border-white focus:outline-none text-lg" placeholder="Permintaan khusus atau informasi tambahan..."></textarea>
+                        </div>
+                        
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="bg-white text-red-600 hover:bg-gray-100 px-12 py-4 rounded-full text-xl font-semibold transition-colors pulse-glow">
+                                <i class="fas fa-ticket-alt mr-3"></i>
+                                <span data-id="submit-booking">Pesan Tiket Sekarang</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="location-title">Lokasi & Petunjuk Arah</h2>
+                <p class="text-xl text-gray-600" data-id="location-desc">Temukan rute terbaik menuju Gunung Tangkuban Parahu</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <div class="mountain-gradient rounded-3xl h-96 flex items-center justify-center text-white cursor-pointer" onclick="openGoogleMaps()">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-8xl mb-6"></i>
+                            <h3 class="text-3xl font-bold mb-4">Peta Interaktif</h3>
+                            <p class="text-xl">Klik untuk membuka di Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8" data-id="directions">Petunjuk Arah</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-6 mt-1">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl mb-2" data-id="step1-title">Dari Bandung</h4>
+                                <p class="text-gray-600 text-lg" data-id="step1-desc">Ambil Jalan Lembang - Tangkuban Parahu, perjalanan sekitar 30 km (1 jam)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-6 mt-1">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl mb-2" data-id="step2-title">Melalui Lembang</h4>
+                                <p class="text-gray-600 text-lg" data-id="step2-desc">Lewati Lembang, ikuti papan petunjuk menuju Tangkuban Parahu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold mr-6 mt-1">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl mb-2" data-id="step3-title">Tiba di Gerbang</h4>
+                                <p class="text-gray-600 text-lg" data-id="step3-desc">Beli tiket di gerbang masuk, lanjutkan ke area parkir kawah</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-yellow-50 border border-yellow-200 rounded-xl">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-exclamation-triangle text-yellow-600 mr-3 text-xl"></i>
+                            <span class="font-semibold text-yellow-800 text-lg" data-id="info">Informasi Penting:</span>
+                        </div>
+                        <ul class="text-yellow-700 space-y-2">
+                            <li data-id="info-1">• Jalan menanjak dan berkelok, pastikan kendaraan dalam kondisi baik</li>
+                            <li data-id="info-2">• Suhu dingin (15-20°C), bawa jaket tebal</li>
+                            <li data-id="info-3">• Cek status aktivitas vulkanik sebelum berkunjung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gray-900 mb-6" data-id="contact-title">Hubungi Kami</h2>
+                <p class="text-xl text-gray-600" data-id="contact-desc">Ada pertanyaan? Tim kami siap membantu Anda</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <div class="space-y-8">
+                        <div class="flex items-center">
+                            <div class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mr-6">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl" data-id="address">Alamat</h4>
+                                <p class="text-gray-600 text-lg">Cikole, Lembang, Kabupaten Bandung Barat, Jawa Barat 40391</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mr-6">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl" data-id="phone-contact">Telepon</h4>
+                                <p class="text-gray-600 text-lg">+62 22 2786 0123</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mr-6">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl">Email</h4>
+                                <p class="text-gray-600 text-lg">info@tangkubanparahu.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center mr-6">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-xl" data-id="hours">Jam Operasional</h4>
+                                <p class="text-gray-600 text-lg" data-id="hours-desc">Setiap hari: 07.00 - 17.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="mt-12">
+                        <h4 class="font-semibold text-gray-900 mb-6 text-xl" data-id="follow-us">Ikuti Kami</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" onclick="shareToSocial('facebook')" class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors text-xl">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" onclick="shareToSocial('instagram')" class="bg-pink-600 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors text-xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" onclick="shareToSocial('youtube')" class="bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors text-xl">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" onclick="shareToSocial('whatsapp')" class="bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors text-xl">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" onclick="shareToSocial('twitter')" class="bg-blue-400 text-white w-14 h-14 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors text-xl">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="contactName" class="block text-gray-700 font-semibold mb-3 text-lg" data-id="name">Nama</label>
+                            <input type="text" id="contactName" required class="w-full px-6 py-4 border border-gray-300 rounded-xl focus:border-red-600 focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="contactEmail" class="block text-gray-700 font-semibold mb-3 text-lg">Email</label>
+                            <input type="email" id="contactEmail" required class="w-full px-6 py-4 border border-gray-300 rounded-xl focus:border-red-600 focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-semibold mb-3 text-lg" data-id="subject">Subjek</label>
+                            <input type="text" id="subject" required class="w-full px-6 py-4 border border-gray-300 rounded-xl focus:border-red-600 focus:outline-none text-lg">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-semibold mb-3 text-lg" data-id="message">Pesan</label>
+                            <textarea id="message" rows="6" required class="w-full px-6 py-4 border border-gray-300 rounded-xl focus:border-red-600 focus:outline-none text-lg"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-semibold transition-colors text-lg">
+                            <i class="fas fa-paper-plane mr-3"></i>
+                            <span data-id="send-message">Kirim Pesan</span>
+                        </button>
+                    </form>
+                    
+                    <!-- Rating Form -->
+                    <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+                        <h4 class="font-semibold text-gray-900 mb-4 text-lg" data-id="rate-us">Beri Rating & Saran</h4>
+                        <form id="ratingForm">
+                            <div class="mb-4">
+                                <div class="flex space-x-2 mb-3">
+                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="1">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="2">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="3">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="4">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                    <button type="button" class="star-rating text-2xl text-gray-300 hover:text-yellow-400" data-rating="5">
+                                        <i class="fas fa-star"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea placeholder="Bagikan pengalaman Anda..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-red-600 focus:outline-none" rows="3"></textarea>
+                            <button type="submit" class="mt-3 bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                                <span data-id="submit-rating">Kirim Rating</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-mountain text-3xl text-red-400 volcanic-smoke"></i>
+                        <span class="text-2xl font-bold">Tangkuban Parahu</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-lg" data-id="footer-desc">Destinasi wisata gunung berapi aktif terpopuler di Jawa Barat dengan keindahan kawah yang menakjubkan.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-xl">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-id="quick-links">Tautan Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="home">Beranda</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="about">Tentang</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="gallery">Galeri</a></li>
+                        <li><a href="#facilities" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="facilities">Fasilitas</a></li>
+                        <li><a href="#booking" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="booking">Reservasi</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-id="services">Layanan</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="guide-service">Pemandu Wisata</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="photo-service">Jasa Fotografi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="transport">Transportasi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="accommodation">Penginapan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-400 transition-colors text-lg" data-id="emergency">Layanan Darurat</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold mb-6" data-id="contact-info">Kontak</h4>
+                    <div class="space-y-3 text-gray-400">
+                        <p class="flex items-center text-lg">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            Lembang, Bandung Barat
+                        </p>
+                        <p class="flex items-center text-lg">
+                            <i class="fas fa-phone mr-3"></i>
+                            +62 22 2786 0123
+                        </p>
+                        <p class="flex items-center text-lg">
+                            <i class="fas fa-envelope mr-3"></i>
+                            info@tangkubanparahu.com
+                        </p>
+                        <p class="flex items-center text-lg">
+                            <i class="fas fa-clock mr-3"></i>
+                            07.00 - 17.00 WIB
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p class="text-lg">&copy; 2024 Gunung Tangkuban Parahu. <span data-id="rights">Hak Cipta Dilindungi.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <button id="chatbotToggle" class="bg-red-600 hover:bg-red-700 text-white w-16 h-16 rounded-full shadow-xl transition-colors pulse-glow">
+            <i class="fas fa-comments text-xl"></i>
+        </button>
+        
+        <div id="chatbotWindow" class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-2xl shadow-2xl border">
+            <div class="mountain-gradient text-white p-6 rounded-t-2xl">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-semibold text-lg" data-id="chat-title">Asisten Wisata</h4>
+                        <p class="text-sm opacity-90" data-id="chat-subtitle">Panduan Tangkuban Parahu</p>
+                    </div>
+                    <button id="closeChatbot" class="text-white hover:text-gray-200 text-xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 h-80 overflow-y-auto" id="chatMessages">
+                <div class="bg-gray-100 rounded-xl p-4 mb-4">
+                    <p class="text-sm" data-id="chat-welcome">Halo! Saya asisten virtual Tangkuban Parahu. Ada yang bisa saya bantu tentang kawah, fasilitas, atau informasi wisata?</p>
+                </div>
+            </div>
+            <div class="p-6 border-t">
+                <div class="flex space-x-3">
+                    <input type="text" id="chatInput" placeholder="Ketik pertanyaan Anda..." class="flex-1 px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-red-600">
+                    <button id="sendChat" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl text-sm transition-colors">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Popup -->
+    <div id="videoPopup" class="fixed inset-0 z-50 hidden video-overlay flex items-center justify-center">
+        <div class="relative max-w-6xl w-full mx-4">
+            <button onclick="closeVideoPopup()" class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="bg-black rounded-2xl overflow-hidden">
+                <div class="aspect-video mountain-gradient flex items-center justify-center text-white">
+                    <div class="text-center">
+                        <i class="fas fa-play-circle text-8xl mb-6 floating"></i>
+                        <h3 class="text-4xl font-bold mb-4">Video Tangkuban Parahu</h3>
+                        <p class="text-xl">Keindahan kawah dari udara</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Virtual Tour Popup -->
+    <div id="virtualTourPopup" class="fixed inset-0 z-50 hidden video-overlay flex items-center justify-center">
+        <div class="relative max-w-7xl w-full mx-4">
+            <button onclick="closeVirtualTour()" class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="bg-black rounded-2xl overflow-hidden">
+                <div class="aspect-video bg-gradient-to-br from-yellow-600 to-orange-600 flex items-center justify-center text-white">
+                    <div class="text-center">
+                        <i class="fas fa-vr-cardboard text-8xl mb-6 floating"></i>
+                        <h3 class="text-4xl font-bold mb-4">Virtual Tour 360°</h3>
+                        <p class="text-xl mb-6">Jelajahi Kawah Ratu secara virtual</p>
+                        <div class="space-x-4">
+                            <button class="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                Mulai Tour Kawah Ratu
+                            </button>
+                            <button class="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                                Tour Kawah Upas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            id: {
+                'hero-title': 'Gunung Tangkuban Parahu',
+                'hero-subtitle': 'Legenda Sangkuriang & Keajaiban Kawah Aktif',
+                'book-now': 'Pesan Tiket',
+                'virtual-tour': 'Virtual Tour 360°',
+                'watch-video': 'Tonton Video',
+                'visitors': 'Pengunjung/Tahun',
+                'altitude': 'Meter dpl',
+                'craters': 'Kawah Aktif',
+                'rating': 'Rating Wisata',
+                'about-title': 'Tentang Tangkuban Parahu',
+                'about-desc': 'Gunung Tangkuban Parahu adalah gunung berapi aktif yang terletak di Kabupaten Subang dan Kabupaten Bandung Barat, Jawa Barat. Dengan ketinggian 2.084 meter di atas permukaan laut, gunung ini menjadi salah satu destinasi wisata alam paling populer di Indonesia.',
+                'legend-title': 'Legenda Sangkuriang',
+                'legend-p1': 'Menurut legenda Sunda, Tangkuban Parahu terbentuk dari perahu yang ditendang oleh Sangkuriang dalam kemarahannya. Bentuk gunung yang menyerupai perahu terbalik menjadi bukti nyata dari cerita legendaris ini.',
+                'legend-p2': 'Kini, Tangkuban Parahu menjadi destinasi wisata yang memadukan keindahan alam, nilai sejarah, dan kearifan lokal dalam satu pengalaman yang tak terlupakan.'
+            },
+            en: {
+                'hero-title': 'Mount Tangkuban Parahu',
+                'hero-subtitle': 'Sangkuriang Legend & Active Crater Wonders',
+                'book-now': 'Book Tickets',
+                'virtual-tour': 'Virtual Tour 360°',
+                'watch-video': 'Watch Video',
+                'visitors': 'Visitors/Year',
+                'altitude': 'Meters asl',
+                'craters': 'Active Craters',
+                'rating': 'Tourism Rating',
+                'about-title': 'About Tangkuban Parahu',
+                'about-desc': 'Mount Tangkuban Parahu is an active volcano located in Subang Regency and West Bandung Regency, West Java. At 2,084 meters above sea level, this mountain is one of the most popular natural tourism destinations in Indonesia.',
+                'legend-title': 'Sangkuriang Legend',
+                'legend-p1': 'According to Sundanese legend, Tangkuban Parahu was formed from a boat kicked by Sangkuriang in his anger. The mountain shape resembling an upside-down boat serves as tangible proof of this legendary story.',
+                'legend-p2': 'Now, Tangkuban Parahu has become a tourist destination that combines natural beauty, historical value, and local wisdom in one unforgettable experience.'
+            }
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAnimations();
+            initializeCounters();
+            initializeChatbot();
+            initializeForms();
+            initializeCarousel();
+            initializeDarkMode();
+            initializeLanguageSwitch();
+            initializeSidebar();
+            initializeStarRating();
+        });
+
+        // Scroll animations
+        function initializeAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Counter animation
+        function initializeCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const increment = target / 100;
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            if (current < target) {
+                                current += increment;
+                                if (target % 1 !== 0) {
+                                    counter.textContent = current.toFixed(1);
+                                } else {
+                                    counter.textContent = Math.ceil(current).toLocaleString();
+                                }
+                                setTimeout(updateCounter, 20);
+                            } else {
+                                if (target % 1 !== 0) {
+                                    counter.textContent = target.toFixed(1);
+                                } else {
+                                    counter.textContent = target.toLocaleString();
+                                }
+                            }
+                        };
+                        
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Sidebar functionality
+        function initializeSidebar() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.add('open');
+            });
+
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.remove('open');
+                }
+            });
+
+            // Close sidebar when clicking on links
+            sidebar.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    sidebar.classList.remove('open');
+                });
+            });
+        }
+
+        // Star rating functionality
+        function initializeStarRating() {
+            const stars = document.querySelectorAll('.star-rating');
+            let selectedRating = 0;
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    selectedRating = parseInt(star.getAttribute('data-rating'));
+                    updateStarDisplay();
+                });
+
+                star.addEventListener('mouseenter', () => {
+                    const hoverRating = parseInt(star.getAttribute('data-rating'));
+                    highlightStars(hoverRating);
+                });
+            });
+
+            document.getElementById('ratingForm').addEventListener('mouseleave', () => {
+                updateStarDisplay();
+            });
+
+            function updateStarDisplay() {
+                stars.forEach((star, index) => {
+                    if (index < selectedRating) {
+                        star.classList.remove('text-gray-300');
+                        star.classList.add('text-yellow-400');
+                    } else {
+                        star.classList.remove('text-yellow-400');
+                        star.classList.add('text-gray-300');
+                    }
+                });
+            }
+
+            function highlightStars(rating) {
+                stars.forEach((star, index) => {
+                    if (index < rating) {
+                        star.classList.remove('text-gray-300');
+                        star.classList.add('text-yellow-400');
+                    } else {
+                        star.classList.remove('text-yellow-400');
+                        star.classList.add('text-gray-300');
+                    }
+                });
+            }
+        }
+
+        // Chatbot functionality
+        function initializeChatbot() {
+            const chatbotToggle = document.getElementById('chatbotToggle');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbot = document.getElementById('closeChatbot');
+            const sendChat = document.getElementById('sendChat');
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+
+            chatbotToggle.addEventListener('click', () => {
+                chatbotWindow.classList.toggle('hidden');
+            });
+
+            closeChatbot.addEventListener('click', () => {
+                chatbotWindow.classList.add('hidden');
+            });
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    // Add user message
+                    const userMsg = document.createElement('div');
+                    userMsg.className = 'text-right mb-4';
+                    userMsg.innerHTML = `<div class="bg-red-600 text-white rounded-xl p-4 inline-block max-w-xs"><p class="text-sm">${message}</p></div>`;
+                    chatMessages.appendChild(userMsg);
+
+                    // Add bot response
+                    setTimeout(() => {
+                        const botMsg = document.createElement('div');
+                        botMsg.className = 'mb-4';
+                        
+                        let response = "Terima kasih atas pertanyaan Anda! ";
+                        
+                        if (message.toLowerCase().includes('kawah')) {
+                            response += "Tangkuban Parahu memiliki 9 kawah aktif, dengan Kawah Ratu sebagai yang terbesar dan paling populer. Kawah Upas dan Kawah Domas juga menarik untuk dikunjungi.";
+                        } else if (message.toLowerCase().includes('tiket') || message.toLowerCase().includes('harga')) {
+                            response += "Harga tiket masuk: Dewasa Rp 30.000, Anak-anak Rp 15.000. Tersedia juga paket premium dengan guide mulai Rp 75.000.";
+                        } else if (message.toLowerCase().includes('jam') || message.toLowerCase().includes('buka')) {
+                            response += "Tangkuban Parahu buka setiap hari dari jam 07.00 - 17.00 WIB. Disarankan datang pagi untuk cuaca yang lebih cerah.";
+                        } else {
+                            response += "Tim kami akan segera membantu Anda dengan informasi lengkap tentang Tangkuban Parahu. Silakan hubungi +62 22 2786 0123 untuk bantuan langsung.";
+                        }
+                        
+                        botMsg.innerHTML = `<div class="bg-gray-100 rounded-xl p-4 inline-block max-w-xs"><p class="text-sm">${response}</p></div>`;
+                        chatMessages.appendChild(botMsg);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+
+            sendChat.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        }
+
+        // Form handling
+        function initializeForms() {
+            const bookingForm = document.getElementById('bookingForm');
+            const contactForm = document.getElementById('contactForm');
+            const ratingForm = document.getElementById('ratingForm');
+
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showNotification('Reservasi tiket berhasil dikirim! Tim kami akan menghubungi Anda dalam 24 jam.', 'success');
+                bookingForm.reset();
+            });
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showNotification('Pesan berhasil dikirim! Terima kasih atas feedback Anda.', 'success');
+                contactForm.reset();
+            });
+
+            ratingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                showNotification('Rating dan saran berhasil dikirim! Terima kasih atas penilaian Anda.', 'success');
+                ratingForm.reset();
+            });
+        }
+
+        // Testimonial carousel
+        function initializeCarousel() {
+            // Auto-rotate testimonials
+            setInterval(() => {
+                // Carousel rotation logic would go here
+            }, 5000);
+        }
+
+        // Dark mode toggle
+        function initializeDarkMode() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                const icon = darkModeToggle.querySelector('i');
+                if (body.classList.contains('dark')) {
+                    icon.className = 'fas fa-sun text-yellow-400';
+                } else {
+                    icon.className = 'fas fa-moon text-gray-600';
+                }
+            });
+        }
+
+        // Language switcher
+        function initializeLanguageSwitch() {
+            const languageSwitch = document.getElementById('languageSwitch');
+            
+            languageSwitch.addEventListener('change', (e) => {
+                const lang = e.target.value;
+                translatePage(lang);
+            });
+        }
+
+        function translatePage(lang) {
+            const elements = document.querySelectorAll('[data-id]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-id');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Gallery filter
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active', 'bg-red-600', 'text-white'));
+            event.target.classList.add('active', 'bg-red-600', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                showNotification(`Mencari: "${searchTerm}"...`, 'success');
+                // Search logic would go here
+            }
+        }
+
+        // Video popup
+        function openVideoPopup() {
+            document.getElementById('videoPopup').classList.remove('hidden');
+        }
+
+        function closeVideoPopup() {
+            document.getElementById('videoPopup').classList.add('hidden');
+        }
+
+        // Virtual tour
+        function openVirtualTour() {
+            document.getElementById('virtualTourPopup').classList.remove('hidden');
+        }
+
+        function closeVirtualTour() {
+            document.getElementById('virtualTourPopup').classList.add('hidden');
+        }
+
+        // Social media sharing
+        function shareToSocial(platform) {
+            const url = window.location.href;
+            const text = 'Jelajahi keindahan Gunung Tangkuban Parahu!';
+            
+            let shareUrl = '';
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
+                    break;
+                case 'instagram':
+                    showNotification('Salin link untuk dibagikan di Instagram!', 'success');
+                    navigator.clipboard.writeText(url);
+                    return;
+                case 'youtube':
+                    showNotification('Kunjungi channel YouTube kami!', 'success');
+                    return;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        // Google Maps integration
+        function openGoogleMaps() {
+            const mapsUrl = 'https://www.google.com/maps/place/Tangkuban+Parahu/@-6.7597,107.6098,15z';
+            window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Utility functions
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-6 rounded-xl shadow-2xl ${type === 'success' ? 'bg-green-600' : 'bg-red-600'} text-white text-lg`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        function openLightbox(imageId) {
+            showNotification('Membuka galeri foto...', 'success');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f4134f27876cf2',t:'MTc2MDU4MTIwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
