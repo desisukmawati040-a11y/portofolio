@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Desi Sukmawati</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    h1, h2, h3, .heading {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .app-wrapper {
+      min-height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    .floral-bg {
+      background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 25%, #fbcfe8 50%, #f9a8d4 75%, #f472b6 100%);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ec4899, #db2777);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #ec4899;
+      color: #db2777;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+      color: white;
+    }
+    
+    .skill-bar {
+      background: linear-gradient(90deg, #f9a8d4 0%, #ec4899 100%);
+      transition: width 1s ease-out;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .flower-decoration {
+      position: absolute;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '✿';
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ec4899;
+      font-size: 1.2rem;
+    }
+    
+    .section-title::before {
+      content: '✿';
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ec4899;
+      font-size: 1.2rem;
+    }
+    
+    .profile-ring {
+      background: linear-gradient(135deg, #ec4899, #db2777, #be185d, #ec4899);
+      padding: 4px;
+      border-radius: 50%;
+    }
+    
+    .scroll-smooth {
+      scroll-behavior: smooth;
+    }
+    
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="h-full scroll-smooth">
+  <div class="app-wrapper floral-bg">
+    
+    <!-- Floating Flower Decorations -->
+    <div class="flower-decoration floating" style="top: 10%; left: 5%; font-size: 4rem;">🌸</div>
+    <div class="flower-decoration floating" style="top: 30%; right: 8%; font-size: 3rem; animation-delay: -2s;">🌺</div>
+    <div class="flower-decoration floating" style="top: 60%; left: 3%; font-size: 2.5rem; animation-delay: -4s;">🌷</div>
+    <div class="flower-decoration floating" style="top: 80%; right: 5%; font-size: 3.5rem; animation-delay: -1s;">💐</div>
+    
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card">
+      <nav class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🌸</span>
+            <span id="site-title" class="text-xl font-semibold text-pink-700 heading">Desi Sukmawati</span>
+          </div>
+          
+          <!-- Desktop Navigation -->
+          <ul class="hidden md:flex items-center gap-8">
+            <li><a href="#home" class="nav-link text-gray-700 hover:text-pink-600">Home</a></li>
+            <li><a href="#about" class="nav-link text-gray-700 hover:text-pink-600">About</a></li>
+            <li><a href="#skills" class="nav-link text-gray-700 hover:text-pink-600">Skills</a></li>
+            <li><a href="#portfolio" class="nav-link text-gray-700 hover:text-pink-600">Portfolio</a></li>
+            <li><a href="#experience" class="nav-link text-gray-700 hover:text-pink-600">Experience</a></li>
+            <li><a href="#contact" class="nav-link text-gray-700 hover:text-pink-600">Contact</a></li>
+          </ul>
+          
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 text-pink-600" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 glass-card md:hidden p-6 pt-16">
+          <button id="close-menu-btn" class="absolute top-4 right-4 p-2 text-pink-600" aria-label="Close menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+          <ul class="flex flex-col gap-4">
+            <li><a href="#home" class="block py-2 text-gray-700 hover:text-pink-600 border-b border-pink-100">Home</a></li>
+            <li><a href="#about" class="block py-2 text-gray-700 hover:text-pink-600 border-b border-pink-100">About</a></li>
+            <li><a href="#skills" class="block py-2 text-gray-700 hover:text-pink-600 border-b border-pink-100">Skills</a></li>
+            <li><a href="#portfolio" class="block py-2 text-gray-700 hover:text-pink-600 border-b border-pink-100">Portfolio</a></li>
+            <li><a href="#experience" class="block py-2 text-gray-700 hover:text-pink-600 border-b border-pink-100">Experience</a></li>
+            <li><a href="#contact" class="block py-2 text-gray-700 hover:text-pink-600">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
+    <main>
+      <!-- Home Section -->
+      <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-center md:text-left fade-in">
+            <p id="tagline" class="text-pink-500 font-medium mb-2">✨ Welcome to my Portfolio ✨</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 heading">
+              Halo, Saya<br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-600">Desi Sukmawati</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-2">
+              <span class="inline-flex items-center gap-2">
+                <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
+                Microsoft Word
+              </span>
+              <span class="mx-2">•</span>
+              <span class="inline-flex items-center gap-2">
+                <span class="w-2 h-2 bg-rose-500 rounded-full"></span>
+                Microsoft Excel
+              </span>
+            </p>
+            <p id="intro-text" class="text-gray-600 mb-8 leading-relaxed max-w-lg">
+              Saya adalah individu yang berdedikasi, teliti, dan memiliki semangat tinggi dalam mengembangkan kemampuan di bidang yang saya tekuni.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="#portfolio" id="cta-button" class="btn-primary text-white px-8 py-3 rounded-full font-medium text-center">
+                Lihat Portofolio
+              </a>
+              <a href="#contact" class="btn-secondary px-8 py-3 rounded-full font-medium text-center">
+                Hubungi Saya
+              </a>
+            </div>
+          </div>
+          <div class="flex justify-center fade-in" style="animation-delay: 0.3s;">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full blur-3xl opacity-30 scale-110"></div>
+              <div class="profile-ring relative">
+                <img 
+                  src="https://raw.githubusercontent.com/desisukmawati040-a11y/portofolio/main/WhatsApp%20Image%202026-01-29%20at%2009.01.29.jpeg" 
+                  alt="Foto Desi Sukmawati" 
+                  class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover"
+                  loading="lazy"
+                  onerror="console.error('Image failed to load:', this.src); this.style.background='linear-gradient(135deg, #fce7f3, #fbcfe8)'; this.alt='Foto tidak tersedia'; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>👩</text></svg>';"
+                >
+              </div>
+              <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-4 shadow-lg">
+                <span class="text-3xl">🌸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- About Section -->
+      <section id="about" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 heading">
+            <span class="section-title">Tentang Saya</span>
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-2xl p-8 card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">📖</span>
+                <h3 class="text-xl font-semibold text-gray-800 heading">Latar Belakang</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Latar belakang saya terbentuk dari berbagai pengalaman belajar dan keterlibatan dalam kegiatan yang membantu mengembangkan keterampilan, kedisiplinan, serta tanggung jawab dalam bekerja. Setiap proses yang saya jalani menjadi pembelajaran berharga untuk terus berkembang, beradaptasi, dan memberikan hasil terbaik dalam setiap kesempatan yang diberikan.
+              </p>
+            </div>
+            
+            <div class="glass-card rounded-2xl p-8 card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">💝</span>
+                <h3 class="text-xl font-semibold text-gray-800 heading">Minat</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Saya memiliki minat yang besar dalam mengembangkan kemampuan, mempelajari hal-hal baru, serta terlibat dalam pekerjaan yang menuntut kreativitas, ketelitian, dan tanggung jawab. Saya senang bekerja dalam lingkungan yang dinamis dan kolaboratif, di mana saya dapat terus belajar dan memberikan kontribusi positif.
+              </p>
+            </div>
+            
+            <div class="glass-card rounded-2xl p-8 card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">💼</span>
+                <h3 class="text-xl font-semibold text-gray-800 heading">Pengalaman</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Saya telah memiliki pengalaman dalam berbagai kegiatan yang membantu saya mengembangkan keterampilan, kedisiplinan, serta kemampuan bekerja sama dalam tim. Dari setiap pengalaman tersebut, saya belajar untuk bertanggung jawab, mengelola waktu dengan baik, dan menyelesaikan tugas secara efektif serta efisien.
+              </p>
+            </div>
+            
+            <div class="glass-card rounded-2xl p-8 card-hover">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">⭐</span>
+                <h3 class="text-xl font-semibold text-gray-800 heading">Keunggulan Pribadi</h3>
+              </div>
+              <p class="text-gray-600 leading-relaxed">
+                Mampu berkomunikasi dengan cepat dan efektif. Saya percaya bahwa komunikasi yang baik adalah kunci keberhasilan dalam setiap pekerjaan dan kolaborasi tim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Skills Section -->
+      <section id="skills" class="py-20 px-4 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 heading">
+            <span class="section-title">Keahlian</span>
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-12">
+            <!-- Hard Skills -->
+            <div class="glass-card rounded-2xl p-8">
+              <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-2 heading">
+                <span>💻</span> Hard Skills
+              </h3>
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-gray-700 font-medium">Microsoft Word</span>
+                    <span class="text-pink-600 font-semibold">90%</span>
+                  </div>
+                  <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+                    <div class="skill-bar h-full rounded-full" style="width: 90%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-gray-700 font-medium">Microsoft Excel</span>
+                    <span class="text-pink-600 font-semibold">85%</span>
+                  </div>
+                  <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+                    <div class="skill-bar h-full rounded-full" style="width: 85%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-gray-700 font-medium">HTML & CSS</span>
+                    <span class="text-pink-600 font-semibold">75%</span>
+                  </div>
+                  <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+                    <div class="skill-bar h-full rounded-full" style="width: 75%;"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-2">
+                    <span class="text-gray-700 font-medium">Desain Grafis</span>
+                    <span class="text-pink-600 font-semibold">70%</span>
+                  </div>
+                  <div class="h-3 bg-pink-100 rounded-full overflow-hidden">
+                    <div class="skill-bar h-full rounded-full" style="width: 70%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Soft Skills -->
+            <div class="glass-card rounded-2xl p-8">
+              <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-2 heading">
+                <span>🌟</span> Soft Skills
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">💬</span>
+                  <span class="text-gray-700 font-medium">Komunikasi</span>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">🤝</span>
+                  <span class="text-gray-700 font-medium">Kerja Tim</span>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">🎨</span>
+                  <span class="text-gray-700 font-medium">Kreativitas</span>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">⏰</span>
+                  <span class="text-gray-700 font-medium">Manajemen Waktu</span>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">🎯</span>
+                  <span class="text-gray-700 font-medium">Ketelitian</span>
+                </div>
+                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-4 text-center card-hover border border-pink-100">
+                  <span class="text-3xl mb-2 block">🔄</span>
+                  <span class="text-gray-700 font-medium">Adaptasi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 heading">
+            <span class="section-title">Portofolio</span>
+          </h2>
+          <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Berikut adalah beberapa proyek dan karya yang telah saya kerjakan
+          </p>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-pink-200 to-rose-300 flex items-center justify-center">
+                <span class="text-6xl">📄</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Dokumen Administrasi</h3>
+                <p class="text-gray-600 text-sm mb-4">Pembuatan berbagai dokumen administrasi profesional menggunakan Microsoft Word</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-pink-100 text-pink-600 text-xs rounded-full">Ms. Word</span>
+                  <span class="px-3 py-1 bg-rose-100 text-rose-600 text-xs rounded-full">Administrasi</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-emerald-200 to-teal-300 flex items-center justify-center">
+                <span class="text-6xl">📊</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Laporan Keuangan</h3>
+                <p class="text-gray-600 text-sm mb-4">Pengolahan data dan pembuatan laporan keuangan menggunakan Microsoft Excel</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-600 text-xs rounded-full">Ms. Excel</span>
+                  <span class="px-3 py-1 bg-teal-100 text-teal-600 text-xs rounded-full">Data</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-violet-200 to-purple-300 flex items-center justify-center">
+                <span class="text-6xl">📋</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Proposal Kegiatan</h3>
+                <p class="text-gray-600 text-sm mb-4">Penyusunan proposal kegiatan organisasi dengan format profesional</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-violet-100 text-violet-600 text-xs rounded-full">Ms. Word</span>
+                  <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full">Organisasi</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-amber-200 to-orange-300 flex items-center justify-center">
+                <span class="text-6xl">📈</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Analisis Data</h3>
+                <p class="text-gray-600 text-sm mb-4">Analisis dan visualisasi data menggunakan fungsi-fungsi Excel</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-amber-100 text-amber-600 text-xs rounded-full">Ms. Excel</span>
+                  <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full">Analisis</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-cyan-200 to-sky-300 flex items-center justify-center">
+                <span class="text-6xl">📝</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Surat Resmi</h3>
+                <p class="text-gray-600 text-sm mb-4">Pembuatan surat resmi dan korespondensi organisasi</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-cyan-100 text-cyan-600 text-xs rounded-full">Ms. Word</span>
+                  <span class="px-3 py-1 bg-sky-100 text-sky-600 text-xs rounded-full">Korespondensi</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="glass-card rounded-2xl overflow-hidden card-hover">
+              <div class="h-48 bg-gradient-to-br from-lime-200 to-green-300 flex items-center justify-center">
+                <span class="text-6xl">📑</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2 heading">Database Inventaris</h3>
+                <p class="text-gray-600 text-sm mb-4">Pembuatan database inventaris barang dengan Excel</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-lime-100 text-lime-600 text-xs rounded-full">Ms. Excel</span>
+                  <span class="px-3 py-1 bg-green-100 text-green-600 text-xs rounded-full">Database</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Experience Section -->
+      <section id="experience" class="py-20 px-4 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 heading">
+            <span class="section-title">Pengalaman Organisasi</span>
+          </h2>
+          
+          <div class="relative">
+            <!-- Timeline Line -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-pink-300 to-rose-400 hidden md:block"></div>
+            
+            <div class="space-y-8">
+              <!-- Experience 1 -->
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="glass-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-3 md:justify-end">
+                      <span class="text-2xl">📚</span>
+                      <h3 class="text-lg font-semibold text-gray-800 heading">Sekretaris Pramuka</h3>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-2">SMP 4 Subang</p>
+                    <p class="text-gray-600 text-sm">Mengelola administrasi dan dokumentasi kegiatan pramuka, serta mengkoordinasikan jadwal pertemuan.</p>
+                  </div>
+                </div>
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">
+                  1
+                </div>
+                <div class="md:w-1/2"></div>
+              </div>
+              
+              <!-- Experience 2 -->
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2"></div>
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">
+                  2
+                </div>
+                <div class="md:w-1/2">
+                  <div class="glass-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="text-2xl">💰</span>
+                      <h3 class="text-lg font-semibold text-gray-800 heading">Bendahara Pegasus</h3>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-2">SMA 1 Subang</p>
+                    <p class="text-gray-600 text-sm">Mengelola keuangan organisasi, membuat laporan keuangan berkala, dan mengawasi penggunaan anggaran.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Experience 3 -->
+              <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="glass-card rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-3 md:justify-end">
+                      <span class="text-2xl">🔧</span>
+                      <h3 class="text-lg font-semibold text-gray-800 heading">Seksi Peralatan Odyssey</h3>
+                    </div>
+                    <p class="text-pink-600 font-medium mb-2">Event Odyssey</p>
+                    <p class="text-gray-600 text-sm">Bertanggung jawab dalam pengelolaan dan koordinasi peralatan untuk kegiatan dan acara organisasi.</p>
+                  </div>
+                </div>
+                <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg z-10">
+                  3
+                </div>
+                <div class="md:w-1/2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 heading">
+            <span class="section-title">Hubungi Saya</span>
+          </h2>
+          <p class="text-center text-gray-600 mb-12">
+            Jangan ragu untuk menghubungi saya melalui kontak di bawah ini
+          </p>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- Email -->
+            <a href="mailto:desisukmawati040@gmail.com" class="glass-card rounded-2xl p-6 text-center card-hover block">
+              <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">📧</span>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2 heading">Email</h3>
+              <p class="text-gray-600 text-sm break-all">desisukmawati040@gmail.com</p>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6282129230602" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-6 text-center card-hover block">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">💬</span>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2 heading">WhatsApp</h3>
+              <p class="text-gray-600 text-sm">082129230602</p>
+            </a>
+            
+            <!-- Instagram -->
+            <a href="https://instagram.com/dskma_01" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-6 text-center card-hover block">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-3xl">📸</span>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-2 heading">Instagram</h3>
+              <p class="text-gray-600 text-sm">@dskma_01</p>
+            </a>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="mt-12 glass-card rounded-2xl p-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center heading">Kirim Pesan</h3>
+            <form id="contact-form" class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                  <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 outline-none transition" placeholder="Nama Anda" required>
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 outline-none transition" placeholder="email@example.com" required>
+                </div>
+              </div>
+              <div>
+                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 outline-none transition" placeholder="Subjek pesan" required>
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-pink-200 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 outline-none transition resize-none" placeholder="Tulis pesan Anda..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full text-white py-3 rounded-xl font-medium">
+                Kirim Pesan ✨
+              </button>
+            </form>
+            <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-xl text-center">
+              ✅ Pesan berhasil dikirim! Terima kasih telah menghubungi saya.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🌸</span>
+            <span class="font-semibold heading">Desi Sukmawati</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <a href="mailto:desisukmawati040@gmail.com" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-500 transition" aria-label="Email">
+              <span>📧</span>
+            </a>
+            <a href="https://wa.me/6282129230602" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-green-500 transition" aria-label="WhatsApp">
+              <span>💬</span>
+            </a>
+            <a href="https://instagram.com/dskma_01" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pink-500 transition" aria-label="Instagram">
+              <span>📸</span>
+            </a>
+          </div>
+          
+          <p class="text-gray-400 text-sm">
+            © Desi Sukma – 2026. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      site_title: 'Desi Sukmawati',
+      tagline: '✨ Welcome to my Portfolio ✨',
+      intro_text: 'Saya adalah individu yang berdedikasi, teliti, dan memiliki semangat tinggi dalam mengembangkan kemampuan di bidang yang saya tekuni.',
+      cta_button_text: 'Lihat Portofolio',
+      primary_color: '#ec4899',
+      secondary_color: '#fdf2f8',
+      text_color: '#1f2937',
+      accent_color: '#db2777',
+      surface_color: '#ffffff'
+    };
+    
+    let config = { ...defaultConfig };
+    
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+    
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+    
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formSuccess.classList.remove('hidden');
+      contactForm.reset();
+      setTimeout(() => {
+        formSuccess.classList.add('hidden');
+      }, 5000);
+    });
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // SDK Integration
+    async function onConfigChange(newConfig) {
+      config = { ...defaultConfig, ...newConfig };
+      
+      // Update site title
+      const siteTitle = document.getElementById('site-title');
+      if (siteTitle) siteTitle.textContent = config.site_title || defaultConfig.site_title;
+      
+      // Update tagline
+      const tagline = document.getElementById('tagline');
+      if (tagline) tagline.textContent = config.tagline || defaultConfig.tagline;
+      
+      // Update intro text
+      const introText = document.getElementById('intro-text');
+      if (introText) introText.textContent = config.intro_text || defaultConfig.intro_text;
+      
+      // Update CTA button text
+      const ctaButton = document.getElementById('cta-button');
+      if (ctaButton) ctaButton.textContent = config.cta_button_text || defaultConfig.cta_button_text;
+    }
+    
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              cfg.secondary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+            }
+          },
+          {
+            get: () => cfg.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              cfg.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              cfg.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => cfg.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              cfg.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => cfg.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              cfg.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || 'Poppins',
+          set: (value) => {
+            cfg.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || 16,
+          set: (value) => {
+            cfg.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ['site_title', cfg.site_title || defaultConfig.site_title],
+        ['tagline', cfg.tagline || defaultConfig.tagline],
+        ['intro_text', cfg.intro_text || defaultConfig.intro_text],
+        ['cta_button_text', cfg.cta_button_text || defaultConfig.cta_button_text]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
